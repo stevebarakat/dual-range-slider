@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./reset.css";
-import "./App.css";
+// import "./App.css";
 import "./styles.css";
 
 const MultiSlider = () => {
@@ -24,16 +24,17 @@ const MultiSlider = () => {
   const newPosition1 = 10 - newValue1 * 0.2;
   const newPosition2 = 10 - newValue2 * 0.2;
 
-  if (input1.current)
-    input1.current.innerHTML = `<span>${input1.current?.value}</span>`;
+  // if (input1.current)
+  //   input1.current.innerHTML = `<span>${input1.current.value}</span>`;
 
-  if (input1.current)
-    input1.current.style.left = `calc(${newValue1}% + (${newPosition1}px))`;
+  // if (input1.current)
+  //   input1.current.style.left = `calc(${newValue1}% + (${newPosition1}px))`;
 
-  if (input2.current)
-    input2.current.innerHTML = `<span>${input2.current?.value}</span>`;
-  if (input2.current)
-    input2.current.style.left = `calc(${newValue2}% + (${newPosition2}px))`;
+  // if (input2.current)
+  //   input2.current.innerHTML = `<span>${input2.current.value}</span>`;
+
+  // if (input2.current)
+  //   input2.current.style.left = `calc(${newValue2}% + (${newPosition2}px))`;
 
   //If the upper value slider is LESS THAN the value1 value slider plus one.
   if (values.value2 < values.value1 + 1) {
@@ -49,30 +50,37 @@ const MultiSlider = () => {
   return (
     <div className="multi-range-container">
       <div className="multi-range">
-        <output className="range-value"><span>{values.value1}</span></output>
+        <span><output>{values.value1}</output></span>
         <input
-          ref={input1}
+          // ref={input1}
           type="range"
           min="0"
           max="500"
           step="5"
           value={values.value1}
           onInput={e => setValues({ ...values, value1: parseInt(e.target.value) })}
-          style={{ border: '2px solid green', left: `calc(${newValue1}% + (${newPosition1}px))` }}
+          style={{
+            position: "relative",
+            top: "1rem",
+            left: `calc(${newValue1}% + (${newPosition1}px))`
+          }}
         />
-        <span className="range-color"></span>
+        {/* <span
+          className="range-color"
+          style={{ width: (values.value2 * 10) - (values.value1 * 10) + '%' }}
+        ></span> */}
         <input
-          ref={input2}
+          // ref={input2}
           type="range"
           min="0"
           max="500"
           step="5"
           value={values.value2}
           onInput={e => setValues({ ...values, value2: parseInt(e.target.value) })}
-          style={{ border: '1px solid red', left: `calc(${newValue2}% + (${newPosition2}px))` }}
+          style={{ left: `calc(${newValue2}% + (${newPosition2}px))` }}
         />
-        <output className="range-value"><span>{values.value2}</span></output>
       </div>
+      <span><output>{values.value2}</output></span>
     </div>
   );
 };
