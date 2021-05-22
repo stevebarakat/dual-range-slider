@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./reset.css";
-// import "./App.css";
+// import "./range-slider.css";
 import "./multi-slider.css";
 
 const MultiSlider = () => {

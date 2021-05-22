@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import MultiSlider from './MultiSlider';
-import RangeSlider from './RangeSlider';
+import DualRangeSlider from './DualRangeSlider';
 import "./reset.css";
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <MultiSlider /> */}
-    <RangeSlider />
+    <DualRangeSlider />
   </React.StrictMode>,
   document.getElementById('root')
 );

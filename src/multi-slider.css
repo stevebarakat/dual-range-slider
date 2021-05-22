@@ -1,6 +1,13 @@
 body {
-  padding: 4em;
-  background-color: #ddd;
+  min-height: 100vh;
+  padding: 0 10vh;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  background: #eee;
 }
 
 input[type="range"] {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./range-slider.css";
 
 const RangeSlider = () => {
@@ -42,7 +42,11 @@ const RangeSlider = () => {
         />
         <div
           className="progress1"
-          style={{ width: value1 * 2 / 10 + "%" }}
+          style={{
+            // width: "100%",
+            left: `calc(${newValue2}% + (${newPosition2}px))`
+            // right: value2 * 2 / 10 + "%",
+          }}
         ></div>
       </div>
 
@@ -65,10 +69,6 @@ const RangeSlider = () => {
           value={value2}
           onInput={(e) => setValue2(e.target.value)}
         />
-        <div
-          className="progress2"
-          style={{ width: value2 * 2 / 10 + "%" }}
-        ></div>
       </div>
     </div>
   );
