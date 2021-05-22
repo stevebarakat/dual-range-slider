@@ -4,16 +4,18 @@ import "./multi-slider.css";
 const DualRangeSlider = () => {
   const [lowerVal, setLowerVal] = useState(null);
   const [upperVal, setUpperVal] = useState(null);
+  const lowerValEl = useRef(null);
+  const upperValEl = useRef(null);
 
   const newValue1 = Number(
-    ((lowerVal - 0) * 100) /
-    (10 - 0)
+    ((lowerVal - lowerValEl.current?.min) * 100) /
+    (lowerValEl.current?.max - lowerValEl.current?.min)
   );
   const newPosition1 = 10 - newValue1 * 0.2;
 
   const newValue2 = Number(
-    ((upperVal - 0) * 100) /
-    (10 - 0)
+    ((upperVal - upperValEl.current?.min) * 100) /
+    (upperValEl.current?.max - upperValEl.current?.min)
   );
   const newPosition2 = 10 - newValue2 * 0.2;
 
@@ -33,9 +35,9 @@ const DualRangeSlider = () => {
     setUpperVal(lowerVal + 1);
 
     //If the upper value slider equals its set maximum.
-    if (upperVal === 500) {
+    if (upperVal === lowerValEl.current?.max) {
       //Set the lower slider value to equal the upper value slider's maximum value minus one.
-      setLowerVal(parseInt(500) - 1);
+      setLowerVal(parseInt(lowerValEl.current?.max) - 1);
     }
 
   }
@@ -52,6 +54,7 @@ const DualRangeSlider = () => {
           </output>
         )}
         <input
+          ref={lowerValEl}
           type="range"
           min="0"
           max="10"
@@ -74,6 +77,7 @@ const DualRangeSlider = () => {
           </output>
         )}
         <input
+          ref={upperValEl}
           type="range"
           min="0"
           max="10"
