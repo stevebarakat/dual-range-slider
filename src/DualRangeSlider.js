@@ -15,6 +15,18 @@ const DualRangeSlider = () => {
       setUpperVal(1);
     }
   }
+  //If the lower value slider is GREATER THAN the upper value slider minus one.
+  if (lowerVal > upperVal - 1) {
+    //The upper slider value is set to equal the lower value slider plus one.
+    setUpperVal(lowerVal + 1);
+
+    //If the upper value slider equals its set maximum.
+    if (upperVal === 500) {
+      //Set the lower slider value to equal the upper value slider's maximum value minus one.
+      setLowerVal(parseInt(500) - 1);
+    }
+
+  }
 
   return (
     <div class="multi-range-container">
@@ -31,7 +43,7 @@ const DualRangeSlider = () => {
         <span
           id="range-color"
           class="range-color"
-          style={{marginLeft: (lowerVal * 10) + '%', width: (upperVal * 10) - (lowerVal * 10) + '%' }}
+          style={{ marginLeft: (lowerVal * 10) + '%', width: (upperVal * 10) - (lowerVal * 10) + '%' }}
         ></span>
         <input
           type="range"
