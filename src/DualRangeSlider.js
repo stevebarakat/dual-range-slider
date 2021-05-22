@@ -5,6 +5,18 @@ const DualRangeSlider = () => {
   const [lowerVal, setLowerVal] = useState(null);
   const [upperVal, setUpperVal] = useState(null);
 
+  const newValue1 = Number(
+    ((lowerVal - 0) * 100) /
+    (10 - 0)
+  );
+  const newPosition1 = 10 - newValue1 * 0.2;
+
+  const newValue2 = Number(
+    ((upperVal - 0) * 100) /
+    (10 - 0)
+  );
+  const newPosition2 = 10 - newValue2 * 0.2;
+
   //If the upper value slider is LESS THAN the lower value slider plus one.
   if (upperVal < lowerVal + 1) {
     //The lower slider value is set to equal the upper value slider minus one.
@@ -31,6 +43,14 @@ const DualRangeSlider = () => {
   return (
     <div class="multi-range-container">
       <div class="multi-range">
+        {lowerVal && (
+          <output
+            style={{ left: `calc(${newValue1}% + (${newPosition1}px))` }}
+            className="range-value"
+          >
+            <span>{lowerVal}</span>
+          </output>
+        )}
         <input
           type="range"
           min="0"
@@ -45,6 +65,14 @@ const DualRangeSlider = () => {
           class="range-color"
           style={{ marginLeft: (lowerVal * 10) + '%', width: (upperVal * 10) - (lowerVal * 10) + '%' }}
         ></span>
+        {upperVal && (
+          <output
+            style={{ left: `calc(${newValue2}% + (${newPosition2}px))` }}
+            className="range-value"
+          >
+            <span>{upperVal}</span>
+          </output>
+        )}
         <input
           type="range"
           min="0"
