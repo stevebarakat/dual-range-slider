@@ -11,6 +11,7 @@ body {
 }
 
 input[type="range"] {
+  position: absolute;
   box-sizing: border-box;
   appearance: none;
   width: 100%;
@@ -99,7 +100,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .multi-range-container {
-  max-width: 400px;
+  width: 400px;
 }
 
 .multi-range {
@@ -114,7 +115,7 @@ input[type="range"]::-ms-thumb {
 }
 
 .range-color {
-  background-color: #f8f8f9;
+  background-color: red;
   border-radius: 50px;
   width: 100%;
   display: block;
