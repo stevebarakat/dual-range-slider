@@ -64,7 +64,11 @@ const RangeSlider = () => {
         />
         <div
           className="progress"
-          style={{ width: value2 * 2 / 10 + "%" }}
+          style={{
+            position: "relative",
+            left: value2 * 2 / 10 + "%", 
+            width: value2 * 2 / 10 + "%"
+          }}
         ></div>
       </div>
     </div>
