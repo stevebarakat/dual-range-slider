@@ -22,7 +22,7 @@ const DualRangeSlider = () => {
   //If the upper value slider is LESS THAN the lower value slider plus one.
   if (upperVal < lowerVal + 1) {
     //The lower slider value is set to equal the upper value slider minus one.
-    setLowerVal(upperVal - 1);
+    upperVal && setLowerVal(parseFloat(upperVal) - 1);
     //If the lower value slider equals its set minimum.
     if (lowerVal === 0) {
       //Set the upper slider value to equal 1.
@@ -30,14 +30,14 @@ const DualRangeSlider = () => {
     }
   }
   //If the lower value slider is GREATER THAN the upper value slider minus one.
-  if (lowerVal > upperVal - 1) {
+  if (lowerVal > upperVal - 1 && upperVal < 10) {
     //The upper slider value is set to equal the lower value slider plus one.
-    setUpperVal(lowerVal + 1);
+    lowerVal && setUpperVal(parseFloat(lowerVal) + 1);
 
     //If the upper value slider equals its set maximum.
-    if (upperVal === lowerValEl.current?.max) {
+    if (upperVal === lowerValEl.current?.max && lowerVal < 0) {
       //Set the lower slider value to equal the upper value slider's maximum value minus one.
-      setLowerVal(parseInt(lowerValEl.current?.max) - 1);
+      setLowerVal(parseFloat(lowerValEl.current?.max) - 1);
     }
 
   }
@@ -56,12 +56,12 @@ const DualRangeSlider = () => {
         <input
           ref={lowerValEl}
           type="range"
-          min="0"
-          max="10"
+          min={0}
+          max={10}
           value={lowerVal}
           step="0.1"
           id="lower"
-          onInput={e => setLowerVal(e.target.value)}
+          onInput={e => setLowerVal(parseFloat(e.target.value))}
         />
         <span
           id="range-color"
@@ -79,12 +79,12 @@ const DualRangeSlider = () => {
         <input
           ref={upperValEl}
           type="range"
-          min="0"
-          max="10"
+          min={0}
+          max={10}
           value={upperVal}
           step="0.1"
           id="upper"
-          onInput={e => setUpperVal(e.target.value)}
+          onInput={e => setUpperVal(parseFloat(e.target.value))}
         />
       </div>
     </div>
