@@ -16,16 +16,31 @@ input[type="range"] {
 input[type="range"]:focus {
   outline: none;
 }
-input[type="range"]::-webkit-slider-runnable-track {
+#input1::-webkit-slider-runnable-track {
   width: 100%;
   height: 8px;
   cursor: pointer;
-  background: #000;
+  background: black;
+  border-radius: 25px;
+}
+#input2::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: red;
   border-radius: 25px;
 }
 
-.progress {
+.progress1 {
   background: red;
+  height: 8px;
+  border-radius: 25px;
+  position: absolute;
+  top: 20px;
+}
+
+.progress2 {
+  background: black;
   height: 8px;
   border-radius: 25px;
   position: absolute;

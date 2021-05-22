@@ -31,6 +31,7 @@ const RangeSlider = () => {
           </output>
         )}
         <input
+          id="input1"
           ref={input1}
           type="range"
           step="5"
@@ -40,10 +41,11 @@ const RangeSlider = () => {
           onInput={(e) => setValue1(e.target.value)}
         />
         <div
-          className="progress"
+          className="progress1"
           style={{ width: value1 * 2 / 10 + "%" }}
         ></div>
       </div>
+
       <div className="range-wrap">
         {value2 && (
           <output
@@ -54,6 +56,7 @@ const RangeSlider = () => {
           </output>
         )}
         <input
+          id="input2"
           ref={input2}
           type="range"
           step="5"
@@ -63,12 +66,8 @@ const RangeSlider = () => {
           onInput={(e) => setValue2(e.target.value)}
         />
         <div
-          className="progress"
-          style={{
-            position: "relative",
-            left: value2 * 2 / 10 + "%", 
-            width: value2 * 2 / 10 + "%"
-          }}
+          className="progress2"
+          style={{ width: value2 * 2 / 10 + "%" }}
         ></div>
       </div>
     </div>
