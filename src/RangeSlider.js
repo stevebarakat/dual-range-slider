@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import "./App.css";
+import React, { useState, useEffect, useRef } from "react";
+import "./range-slider.css";
 
 const RangeSlider = () => {
   const [value, setValue] = useState("");
@@ -7,7 +7,7 @@ const RangeSlider = () => {
 
   const newValue = Number(
     ((value - rangeEl.current?.min) * 100) /
-      (rangeEl.current?.max - rangeEl.current?.min)
+    (rangeEl.current?.max - rangeEl.current?.min)
   );
   const newPosition = 10 - newValue * 0.2;
 
@@ -30,6 +30,10 @@ const RangeSlider = () => {
         value={value}
         onInput={(e) => setValue(e.target.value)}
       />
+      <div
+        className="progress"
+        style={{width: value * 2 / 10 + "%"}}
+      ></div>
     </div>
   );
 };

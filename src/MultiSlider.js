@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./reset.css";
 // import "./App.css";
-import "./styles.css";
+import "./multi-slider.css";
 
 const MultiSlider = () => {
   const [values, setValues] = useState({

@@ -23,7 +23,18 @@ input[type="range"]::-webkit-slider-runnable-track {
   background: #000;
   border-radius: 25px;
 }
+
+.progress {
+  background: red;
+  height: 8px;
+  border-radius: 25px;
+  position: absolute;
+  top: 20px;
+}
+
 input[type="range"]::-webkit-slider-thumb {
+  position: relative;
+  z-index: 999;
   height: 22px;
   width: 22px;
   border-radius: 50%;
