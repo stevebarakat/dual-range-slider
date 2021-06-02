@@ -68,7 +68,7 @@ const DualRangeSlider = ({ min, max }) => {
           style={{
             background: "#000000",
             // background: "-moz-linear-gradient(left,  #000000 25%, #ffffff 25%, #ffffff 86%, #000000 86%, #000000 86%)",
-            background: `-webkit-linear-gradient(left,  #000000 ${(upperVal * 10 / max * 10) - min}%,#FF0000 ${(upperVal * 10 / max * 10) - min}%,#FF0000 ${(lowerVal * 10 / max * 10) - min}%,#000000 ${lowerVal * 10 / max * 10}%)`
+            background: `-webkit-linear-gradient(left,  #000000 ${(upperVal * 10  / max * 10)  }%,#FF0000 ${(upperVal * 10  / max * 10)  }%,#FF0000 ${(lowerVal * 10  / max * 10)  }%,#000000 ${(lowerVal * 10  / max * 10)  }%)`
             // background: "linear-gradient(to right,  #000000 25%,#ffffff 25%,#ffffff 86%,#000000 86%,#000000 86%)" 
           }}
         ></span>
