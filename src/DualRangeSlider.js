@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import "./multi-slider.css";
 
 const DualRangeSlider = () => {
-  const [lowerVal, setLowerVal] = useState(null);
-  const [upperVal, setUpperVal] = useState(null);
+  const [lowerVal, setLowerVal] = useState("");
+  const [upperVal, setUpperVal] = useState("");
   const [upperValX, setUpperValX] = useState(null);
   const [lowerValX, setLowerValX] = useState(null);
   const lowerValEl = useRef(null);
@@ -47,8 +47,8 @@ const DualRangeSlider = () => {
 
 
   return (
-    <div class="multi-range-container">
-      <div class="multi-range">
+    <div className="multi-range-container">
+      <div className="multi-range">
         {lowerVal && (
           <output
             style={{ left: `calc(${newValue1}% + (${newPosition1}px))` }}
@@ -70,7 +70,7 @@ const DualRangeSlider = () => {
         />
         <span
           id="range-color"
-          class="range-color"
+          className="range-color"
           style={{
             background: "#000000",
             // background: "-moz-linear-gradient(left,  #000000 25%, #ffffff 25%, #ffffff 86%, #000000 86%, #000000 86%)",
