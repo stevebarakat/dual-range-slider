@@ -74,7 +74,7 @@ const DualRangeSlider = () => {
           style={{
             background: "#000000",
             // background: "-moz-linear-gradient(left,  #000000 25%, #ffffff 25%, #ffffff 86%, #000000 86%, #000000 86%)",
-            background: `-webkit-linear-gradient(left,  #000000 ${upperValX - 10}px,#ffffff ${upperValX}px,#ffffff ${lowerValX - 10}px,#000000 ${lowerValX}px,#000000 86%)`
+            background: `-webkit-linear-gradient(left,  #000000 ${upperValX - 10}px,#ffffff ${upperValX -10}px,#ffffff ${lowerValX - 20}px,#000000 ${lowerValX -20}px,#000000 86%)`
             // background: "linear-gradient(to right,  #000000 25%,#ffffff 25%,#ffffff 86%,#000000 86%,#000000 86%)" 
           }}
         ></span>
