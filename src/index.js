@@ -7,7 +7,7 @@ import "./reset.css";
 ReactDOM.render(
   <React.StrictMode>
     {/* <MultiSlider /> */}
-    <DualRangeSlider max="7"/>
+    <DualRangeSlider min="12" max="70"/>
   </React.StrictMode>,
   document.getElementById('root')
 );
