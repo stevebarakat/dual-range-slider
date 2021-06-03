@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import "./multi-slider.css";
 
 const DualRangeSlider = ({ min, max, decimals }) => {
-  const [lowerVal, setLowerVal] = useState(max / 3);
-  const [upperVal, setUpperVal] = useState(max / 2);
+  const [lowerVal, setLowerVal] = useState(min - 1);
+  const [upperVal, setUpperVal] = useState(max);
 
   const newValue1 = Number(
     ((lowerVal - min) * 100) /
@@ -25,7 +25,7 @@ const DualRangeSlider = ({ min, max, decimals }) => {
     //If the lower value slider equals its set minimum.
     if (lowerVal === 0) {
       //Set the upper slider value to equal 1.
-      setUpperVal(0);
+      setUpperVal(min);
     }
   }
   //If the lower value slider is GREATER THAN the upper value slider minus one.
