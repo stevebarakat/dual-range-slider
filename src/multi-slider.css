@@ -160,17 +160,17 @@ input[type="range"]:focus::-ms-fill-upper {
   line-height: 1.75rem;
   text-align: center;
   background: #000;
-  padding: 0.15rem;
+  padding: 0.15rem 0.35rem;
   color: #fff;
   font-size: 1rem;
   display: block;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  border-radius: 100%;
-  width: 35px;
+  border-radius: 5px;
+  /* width: 35px; */
 }
-.range-value span:before {
+/* .range-value span:before {
   content: "";
   position: absolute;
   width: 0;
@@ -182,4 +182,4 @@ input[type="range"]:focus::-ms-fill-upper {
   left: 50%;
   margin-left: -5px;
   margin-top: -1px;
-}
+} */

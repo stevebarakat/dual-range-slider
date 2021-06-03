@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import "./multi-slider.css";
 
 const DualRangeSlider = ({ min, max }) => {
-  const [lowerVal, setLowerVal] = useState("");
-  const [upperVal, setUpperVal] = useState("");
+  const [lowerVal, setLowerVal] = useState(min + 1 * 50);
+  const [upperVal, setUpperVal] = useState(max / 2);
 
   const newValue1 = Number(
     ((lowerVal - min) * 100) /
@@ -45,14 +45,14 @@ const DualRangeSlider = ({ min, max }) => {
   return (
     <div className="multi-range-container">
       <div className="multi-range">
-        {lowerVal ? (
+        {/* {lowerVal ? ( */}
           <output
             style={{ left: `calc(${newValue1}% + (${newPosition1}px))` }}
             className="range-value"
           >
-            <span>{lowerVal}</span>
+            <span>{lowerVal ? lowerVal : 0}</span>
           </output>
-        ) : null}
+        {/* ) : null} */}
         <input
           type="range"
           min={min}
@@ -71,14 +71,14 @@ const DualRangeSlider = ({ min, max }) => {
             // background: "linear-gradient(to right,  #000000 25%,#ffffff 25%,#ffffff 86%,#000000 86%,#000000 86%)" 
           } : {background: "#000000",}}
         ></span>
-        {upperVal ? (
+        {/* {upperVal ? ( */}
           <output
             style={{ left: `calc(${newValue2}% + (${newPosition2}px))` }}
             className="range-value"
           >
-            <span>{upperVal}</span>
+            <span>{upperVal ? upperVal : 0}</span>
           </output>
-        ) : null}
+        {/* ) : null} */}
         <input
           type="range"
           min={min}
