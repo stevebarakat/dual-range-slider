@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import "./multi-slider.css";
 
-const DualRangeSlider = ({ min, max }) => {
-  const [lowerVal, setLowerVal] = useState(min + 1 * 50);
+const DualRangeSlider = ({ min, max, decimals }) => {
+  const [lowerVal, setLowerVal] = useState(max / 3);
   const [upperVal, setUpperVal] = useState(max / 2);
 
   const newValue1 = Number(
@@ -25,7 +25,7 @@ const DualRangeSlider = ({ min, max }) => {
     //If the lower value slider equals its set minimum.
     if (lowerVal === 0) {
       //Set the upper slider value to equal 1.
-      setUpperVal(1);
+      setUpperVal(0);
     }
   }
   //If the lower value slider is GREATER THAN the upper value slider minus one.
@@ -36,7 +36,7 @@ const DualRangeSlider = ({ min, max }) => {
     //If the upper value slider equals its set maximum.
     if (upperVal === max) {
       //Set the lower slider value to equal the upper value slider's maximum value minus one.
-      setLowerVal(parseFloat(max) - 1);
+      setLowerVal(parseFloat(max));
     }
 
   }
@@ -50,7 +50,7 @@ const DualRangeSlider = ({ min, max }) => {
             style={{ left: `calc(${newValue1}% + (${newPosition1}px))` }}
             className="range-value"
           >
-            <span>{lowerVal ? lowerVal : 0}</span>
+            <span>{lowerVal ? lowerVal.toFixed(decimals) : 0}</span>
           </output>
         {/* ) : null} */}
         <input
@@ -76,7 +76,7 @@ const DualRangeSlider = ({ min, max }) => {
             style={{ left: `calc(${newValue2}% + (${newPosition2}px))` }}
             className="range-value"
           >
-            <span>{upperVal ? upperVal : 0}</span>
+            <span>{upperVal ? upperVal.toFixed(decimals) : 0}</span>
           </output>
         {/* ) : null} */}
         <input
