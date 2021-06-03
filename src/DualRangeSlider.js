@@ -29,12 +29,12 @@ const DualRangeSlider = ({ min, max }) => {
     }
   }
   //If the lower value slider is GREATER THAN the upper value slider minus one.
-  if (lowerVal < upperVal - 1 && upperVal > 10) {
+  if (lowerVal < upperVal - 1 ) {
     //The upper slider value is set to equal the lower value slider plus one.
     lowerVal && setUpperVal(parseFloat(lowerVal) + 1);
 
     //If the upper value slider equals its set maximum.
-    if (upperVal === max && lowerVal > 0) {
+    if (upperVal === max) {
       //Set the lower slider value to equal the upper value slider's maximum value minus one.
       setLowerVal(parseFloat(max) - 1);
     }
@@ -45,14 +45,14 @@ const DualRangeSlider = ({ min, max }) => {
   return (
     <div className="multi-range-container">
       <div className="multi-range">
-        {lowerVal && (
+        {lowerVal ? (
           <output
             style={{ left: `calc(${newValue1}% + (${newPosition1}px))` }}
             className="range-value"
           >
             <span>{lowerVal}</span>
           </output>
-        )}
+        ) : null}
         <input
           type="range"
           min={min}
@@ -65,21 +65,20 @@ const DualRangeSlider = ({ min, max }) => {
         <span
           id="range-color"
           className="range-color"
-          style={{
-            background: "#000000",
+          style={min === 0 ? {
             // background: "-moz-linear-gradient(left,  #000000 25%, #ffffff 25%, #ffffff 86%, #000000 86%, #000000 86%)",
-            background: `-webkit-linear-gradient(left,  #000000 ${(upperVal * 10  / max * 10)  }%,#FF0000 ${(upperVal * 10  / max * 10)  }%,#FF0000 ${(lowerVal * 10  / max * 10)  }%,#000000 ${(lowerVal * 10  / max * 10)  }%)`
+            background: `-webkit-linear-gradient(left,  #000000 ${upperVal * 10 / max * 10}%,#FF0000 ${upperVal * 10 / max * 10}%,#FF0000 ${lowerVal * 10 / max * 10}%,#000000 ${lowerVal * 10 / max * 10}%)`
             // background: "linear-gradient(to right,  #000000 25%,#ffffff 25%,#ffffff 86%,#000000 86%,#000000 86%)" 
-          }}
+          } : {background: "#000000",}}
         ></span>
-        {upperVal && (
+        {upperVal ? (
           <output
             style={{ left: `calc(${newValue2}% + (${newPosition2}px))` }}
             className="range-value"
           >
             <span>{upperVal}</span>
           </output>
-        )}
+        ) : null}
         <input
           type="range"
           min={min}
